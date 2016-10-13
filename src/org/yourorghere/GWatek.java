@@ -176,44 +176,37 @@ gl.glTranslatef(0.0f, 0.0f, -6.0f); //przesuniêcie o 6 jednostek
  gl.glRotatef(xrot, 1.0f, 0.0f, 0.0f); //rotacja wokó³ osi X
  gl.glRotatef(yrot, 0.0f, 1.0f, 0.0f); //rotacja wokó³ osi Y
  
- gl.glBegin(GL.GL_QUADS);
-//œciana gorna
-gl.glColor3f(1.0f,0.0f,1.0f);
-gl.glVertex3f(1.0f,1.0f,-1.0f);
-gl.glVertex3f(-1.0f,1.0f,-1.0f);
-gl.glVertex3f(-1.0f,1.0f,1.0f);
-gl.glVertex3f(1.0f,1.0f,1.0f);
-//œciana przednia
-gl.glColor3f(1.0f,0.0f,0.0f);
-gl.glVertex3f(-1.0f,-1.0f,1.0f);
-gl.glVertex3f(1.0f,-1.0f,1.0f);
-gl.glVertex3f(1.0f,1.0f,1.0f);
-gl.glVertex3f(-1.0f,1.0f,1.0f);
-//sciana tylnia
-gl.glColor3f(0.0f,1.0f,0.0f);
-gl.glVertex3f(-1.0f,1.0f,-1.0f);
-gl.glVertex3f(1.0f,1.0f,-1.0f);
-gl.glVertex3f(1.0f,-1.0f,-1.0f);
-gl.glVertex3f(-1.0f,-1.0f,-1.0f);
-//œciana lewa
-gl.glColor3f(0.0f,0.0f,1.0f);
-gl.glVertex3f(-1.0f,-1.0f,-1.0f);
-gl.glVertex3f(-1.0f,-1.0f,1.0f);
-gl.glVertex3f(-1.0f,1.0f,1.0f);
-gl.glVertex3f(-1.0f,1.0f,-1.0f);
-//œciana prawa
-gl.glColor3f(1.0f,1.0f,0.0f);
-gl.glVertex3f(1.0f,1.0f,-1.0f);
-gl.glVertex3f(1.0f,1.0f,1.0f);
-gl.glVertex3f(1.0f,-1.0f,1.0f);
-gl.glVertex3f(1.0f,-1.0f,-1.0f);
-//œciana dolna
+  gl.glBegin(GL.GL_QUADS);
+gl.glBegin(GL.GL_QUADS);
 gl.glColor3f(1.0f,0.0f,1.0f);
 gl.glVertex3f(-1.0f,-1.0f,1.0f);
 gl.glVertex3f(-1.0f,-1.0f,-1.0f);
 gl.glVertex3f(1.0f,-1.0f,-1.0f);
 gl.glVertex3f(1.0f,-1.0f,1.0f);
 gl.glEnd();
+gl.glBegin(GL.GL_TRIANGLES);
+gl.glColor3f(1.0f,0.0f,0.0f);
+gl.glVertex3f(-1.0f,-1.0f,1.0f);
+gl.glVertex3f(1.0f,-1.0f,1.0f);
+gl.glVertex3f(0.0f,1.0f,0.0f);
+
+gl.glColor3f(0.0f,1.0f,0.0f);
+gl.glVertex3f(1.0f,-1.0f,-1.0f);
+gl.glVertex3f(-1.0f,-1.0f,-1.0f);
+gl.glVertex3f(0.0f,1.0f,0.0f);
+
+gl.glColor3f(0.0f,0.0f,1.0f);
+gl.glVertex3f(-1.0f,-1.0f,-1.0f);
+gl.glVertex3f(-1.0f,-1.0f,1.0f);
+gl.glVertex3f(0.0f,1.0f,0.0f);
+
+
+gl.glColor3f(1.0f,1.0f,0.0f);
+gl.glVertex3f(1.0f,-1.0f,1.0f);
+gl.glVertex3f(1.0f,-1.0f,-1.0f);
+gl.glVertex3f(0.0f,1.0f,0.0f);
+gl.glEnd();
+  
 
 
 
