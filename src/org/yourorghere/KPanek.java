@@ -154,10 +154,21 @@ public class KPanek implements GLEventListener {
         gl.glViewport(0, 0, width, height);
         gl.glMatrixMode(GL.GL_PROJECTION);
         gl.glLoadIdentity();
-        glu.gluPerspective(45.0f, h, 1.0, 20.0);
-        gl.glMatrixMode(GL.GL_MODELVIEW);
-        gl.glLoadIdentity();
+        //glu.gluPerspective(45.0f, h, 1.0, 20.0);
+        
+        float ilor;
+        
+        if (width <= height) {
+            ilor = height / width;
+            gl.glOrtho(-10.0f, 10.0f, -10.0f * ilor, 10.0f * ilor, -10.0f, 20.0f);
+        } else {
+            ilor = width / height;
+            gl.glOrtho(-10.0f * ilor, 10.0f * ilor, -10.0f, 10.0f, -10.0f, 20.0f);
+
     }
+    gl.glMatrixMode(GL.GL_MODELVIEW);
+        gl.glLoadIdentity();
+}
 
     void stozek(GL gl) {
 //wywo?ujemy automatyczne normalizowanie normalnych
@@ -240,7 +251,7 @@ public class KPanek implements GLEventListener {
         gl.glEnable(GL.GL_LIGHT0); //uaktywnienie ?ród?a ?wiat?a nr. 0
         gl.glEnable(GL.GL_COLOR_MATERIAL);
 
-        for(int i=0; i<2 ;i++)
+        for(int i=0; i<5 ;i++)
         {
             drzewko(gl);
             gl.glTranslatef(4.0f, 0.0f, 0.0f);
@@ -357,7 +368,7 @@ public class KPanek implements GLEventListener {
 
     void drzewko(GL gl) {
          gl.glPushMatrix();
-        gl.glColor3f(0.0f, 1.0f, 0.0f);
+        gl.glColor3f(0.128f, 0.128f, 0.0f);
         stozek(gl);
         gl.glColor3f(0.0f, 1.0f, 0.0f);
         stozek(gl);
