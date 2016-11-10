@@ -227,7 +227,7 @@ public class KPanek implements GLEventListener {
         gl.glClear(GL.GL_COLOR_BUFFER_BIT | GL.GL_DEPTH_BUFFER_BIT);
         // Reset the current matrix to the "identity"
         gl.glLoadIdentity();
-        gl.glTranslatef(0.0f, 0.0f, -9.0f); //przesuni?cie o 6 jednostek
+        gl.glTranslatef(0.0f, 0.0f, -20.0f); //przesuni?cie o 6 jednostek
         gl.glRotatef(xrot, 1.0f, 0.0f, 0.0f); //rotacja wokó? osi X
         gl.glRotatef(yrot, 0.0f, 1.0f, 0.0f); //rotacja wokó? osi Y
 
@@ -240,7 +240,13 @@ public class KPanek implements GLEventListener {
         gl.glEnable(GL.GL_LIGHT0); //uaktywnienie ?ród?a ?wiat?a nr. 0
         gl.glEnable(GL.GL_COLOR_MATERIAL);
 
-        drzewko(gl);
+        for(int i=0; i<2 ;i++)
+        {
+            drzewko(gl);
+            gl.glTranslatef(4.0f, 0.0f, 0.0f);
+            drzewko(gl);
+            gl.glTranslatef(-4.0f, 4.0f, 0.0f);
+        }
 
 //gl.glBegin(GL.GL_QUADS);
 ////?ciana przednia
@@ -350,6 +356,7 @@ public class KPanek implements GLEventListener {
     }
 
     void drzewko(GL gl) {
+         gl.glPushMatrix();
         gl.glColor3f(0.0f, 1.0f, 0.0f);
         stozek(gl);
         gl.glColor3f(0.0f, 1.0f, 0.0f);
@@ -367,9 +374,13 @@ public class KPanek implements GLEventListener {
         gl.glScalef(0.7f, 0.7f, 1.0f);
         gl.glTranslatef(0.0f, 0.0f, 1.0f);
         walec(gl);
+        gl.glPopMatrix();
+        
+        
+        
     }
     
-
+    
     public void displayChanged(GLAutoDrawable drawable, boolean modeChanged, boolean deviceChanged) {
     }
 }
