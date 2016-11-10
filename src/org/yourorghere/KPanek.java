@@ -143,7 +143,7 @@ public class KPanek implements GLEventListener {
     }
 
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
-        GL gl = drawable.getGL();
+           GL gl = drawable.getGL();
         GLU glu = new GLU();
 
         if (height <= 0) { // avoid a divide by zero error!
@@ -154,19 +154,17 @@ public class KPanek implements GLEventListener {
         gl.glViewport(0, 0, width, height);
         gl.glMatrixMode(GL.GL_PROJECTION);
         gl.glLoadIdentity();
-        //glu.gluPerspective(45.0f, h, 1.0, 20.0);
-        
-        float ilor;
-        
+        glu.gluPerspective(90.0f, h, 5.0, 40.0);
+        gl.glViewport(0, 0, width, height);
+        /*float ilor=0;
         if (width <= height) {
             ilor = height / width;
-            gl.glOrtho(-10.0f, 10.0f, -10.0f * ilor, 10.0f * ilor, -10.0f, 20.0f);
+            gl.glOrtho(-10.0f, 10.0f, -10.0f * ilor, 10.0f * ilor, -10.0f, 10.0f);
         } else {
             ilor = width / height;
-            gl.glOrtho(-10.0f * ilor, 10.0f * ilor, -10.0f, 10.0f, -10.0f, 20.0f);
-
-    }
-    gl.glMatrixMode(GL.GL_MODELVIEW);
+            gl.glOrtho(-10.0f * ilor, 10.0f * ilor, -10.0f, 10.0f, -10.0f, 10.0f);
+        }*/
+        gl.glMatrixMode(GL.GL_MODELVIEW);
         gl.glLoadIdentity();
 }
 
@@ -368,7 +366,7 @@ public class KPanek implements GLEventListener {
 
     void drzewko(GL gl) {
          gl.glPushMatrix();
-        gl.glColor3f(0.128f, 0.128f, 0.0f);
+        gl.glColor3f(0.0f, 1.0f, 0.0f);
         stozek(gl);
         gl.glColor3f(0.0f, 1.0f, 0.0f);
         stozek(gl);
