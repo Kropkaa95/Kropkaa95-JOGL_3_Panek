@@ -19,7 +19,7 @@ import javax.media.opengl.glu.GLU;
  *
  * This version is equal to Brian Paul's version 1.2 1999/10/21
  */
-public class KPanek implements GLEventListener {
+public class JoglSzescian implements GLEventListener {
 //statyczne pola okre?laj?ce rotacj? wokó? osi X i Y
 
     private static float xrot = 0.0f, yrot = 0.0f;
@@ -33,7 +33,7 @@ public class KPanek implements GLEventListener {
         Frame frame = new Frame("Simple JOGL Application");
         GLCanvas canvas = new GLCanvas();
 
-        canvas.addGLEventListener(new KPanek());
+        canvas.addGLEventListener(new JoglSzescian());
         frame.add(canvas);
         frame.setSize(640, 480);
         final Animator animator = new Animator(canvas);
@@ -155,7 +155,8 @@ public class KPanek implements GLEventListener {
         gl.glMatrixMode(GL.GL_PROJECTION);
         gl.glLoadIdentity();
         glu.gluPerspective(90.0f, h, 5.0, 40.0);
-        gl.glViewport(0, 0, width, height);
+        gl.glViewport(0, 0,-width/2, height);
+        
         /*float ilor=0;
         if (width <= height) {
             ilor = height / width;
