@@ -282,7 +282,7 @@ public class KPanek implements GLEventListener {
         //  }
         gl.glBindTexture(GL.GL_TEXTURE_2D, t2.getTextureObject());
         gl.glBegin(GL.GL_QUADS);
-?ciana przednia
+//ciana przednia
         gl.glBindTexture(GL.GL_TEXTURE_2D, t2.getTextureObject());
         gl.glBegin(GL.GL_QUADS);
         gl.glNormal3f(0.0f,0.0f,1.0f);
