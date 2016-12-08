@@ -1,67 +1,79 @@
-package org.yourorghere;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+package org.yourorghere;
+
 import com.sun.opengl.util.texture.Texture;
-import javax.media.opengl.*;
+import javax.media.opengl.GL;
+
 /**
  *
  * @author student
  */
 public class Scena {
+    float x,z,kat;
+    void Przesun(float d)
+    {
+        x-=d*Math.sin(kat*(3.14f/180.0f));
+        z+=d*Math.cos(kat*(3.14f/180.0f));
+        System.out.println(z);
+
+    }
     void Rysuj(GL gl, Texture t1, Texture t2, Texture t3)
  {
+     gl.glRotatef(kat, 0, 1, 0);
+     gl.glTranslatef(x, 0, z);
 //szescian
 gl.glColor3f(1.0f,1.0f,1.0f);
-//za³adowanie tekstury wczytanej wczeœniej z pliku krajobraz.bmp
+//za?adowanie tekstury wczytanej wcze?niej z pliku krajobraz.bmp
 gl.glBindTexture(GL.GL_TEXTURE_2D, t1.getTextureObject());
 gl.glBegin(GL.GL_QUADS);
-//œciana przednia
+//?ciana przednia
 gl.glNormal3f(0.0f,0.0f,-1.0f);
 gl.glTexCoord2f(1.0f, 0.0f);gl.glVertex3f(-100.0f,100.0f,100.0f);
 gl.glTexCoord2f(0.0f, 0.0f);gl.glVertex3f(100.0f,100.0f,100.0f);
-gl.glTexCoord2f(0.0f, 1.0f);gl.glVertex3f(100.0f,-100.0f,100.0f);
-gl.glTexCoord2f(1.0f, 1.0f);gl.glVertex3f(-100.0f,-100.0f,100.0f);
-//œciana tylnia
+gl.glTexCoord2f(0.0f, 0.8f);gl.glVertex3f(100.0f,-100.0f,100.0f);
+gl.glTexCoord2f(1.0f, 0.8f);gl.glVertex3f(-100.0f,-100.0f,100.0f);
+//?ciana tylnia
 gl.glNormal3f(0.0f,0.0f,1.0f);
-gl.glTexCoord2f(1.0f, 1.0f);gl.glVertex3f(-100.0f,-100.0f,-100.0f);
-gl.glTexCoord2f(0.0f, 1.0f);gl.glVertex3f(100.0f,-100.0f,-100.0f);
+gl.glTexCoord2f(1.0f, 0.8f);gl.glVertex3f(-100.0f,-100.0f,-100.0f);
+gl.glTexCoord2f(0.0f, 0.8f);gl.glVertex3f(100.0f,-100.0f,-100.0f);
 gl.glTexCoord2f(0.0f, 0.0f);gl.glVertex3f(100.0f,100.0f,-100.0f);
 gl.glTexCoord2f(1.0f, 0.0f);gl.glVertex3f(-100.0f,100.0f,-100.0f);
-//œciana lewa
+//?ciana lewa
 gl.glNormal3f(1.0f,0.0f,0.0f);
-gl.glTexCoord2f(0.0f, 0.0f);gl.glVertex3f(-100.0f,100.0f,-100.0f);
-gl.glTexCoord2f(1.0f, 0.0f);gl.glVertex3f(-100.0f,100.0f,100.0f);
-gl.glTexCoord2f(1.0f, 1.0f);gl.glVertex3f(-100.0f,-100.0f,100.0f);
-gl.glTexCoord2f(0.0f, 1.0f);gl.glVertex3f(-100.0f,-100.0f,-100.0f);
-//œciana prawa
+gl.glTexCoord2f(0.0f, 0.1f);gl.glVertex3f(-100.0f,100.0f,-100.0f);
+gl.glTexCoord2f(1.0f, 0.1f);gl.glVertex3f(-100.0f,100.0f,100.0f);
+gl.glTexCoord2f(1.0f, 0.8f);gl.glVertex3f(-100.0f,-100.0f,100.0f);
+gl.glTexCoord2f(0.0f, 0.8f);gl.glVertex3f(-100.0f,-100.0f,-100.0f);
+//?ciana prawa
 gl.glNormal3f(-1.0f,0.0f,0.0f);
-gl.glTexCoord2f(0.0f, 1.0f);gl.glVertex3f(100.0f,-100.0f,-100.0f);
-gl.glTexCoord2f(1.0f, 1.0f);gl.glVertex3f(100.0f,-100.0f,100.0f);
-gl.glTexCoord2f(1.0f, 0.0f);gl.glVertex3f(100.0f,100.0f,100.0f);
-gl.glTexCoord2f(0.0f, 0.0f);gl.glVertex3f(100.0f,100.0f,-100.0f);
+gl.glTexCoord2f(0.0f, 0.8f);gl.glVertex3f(100.0f,-100.0f,-100.0f);
+gl.glTexCoord2f(1.0f, 0.8f);gl.glVertex3f(100.0f,-100.0f,100.0f);
+gl.glTexCoord2f(1.0f, 0.1f);gl.glVertex3f(100.0f,100.0f,100.0f);
+gl.glTexCoord2f(0.0f, 0.1f);gl.glVertex3f(100.0f,100.0f,-100.0f);
 gl.glEnd();
 
-//œciana dolna
-//za³adowanie tekstury wczytanej wczeœniej z pliku niebo.bmp
+//?ciana dolna
+//za?adowanie tekstury wczytanej wcze?niej z pliku niebo.bmp
  gl.glBindTexture(GL.GL_TEXTURE_2D, t2.getTextureObject());
- //ustawienia aby tekstura siê powiela³a
+ //ustawienia aby tekstura si? powiela?a
  gl.glTexParameteri(GL.GL_TEXTURE_2D, GL.GL_TEXTURE_WRAP_S, GL.GL_REPEAT);
  gl.glTexParameteri(GL.GL_TEXTURE_2D, GL.GL_TEXTURE_WRAP_T, GL.GL_REPEAT);
 gl.glBegin(GL.GL_QUADS);
 gl.glNormal3f(0.0f,1.0f,0.0f);
- //koordynaty ustawienia 16 x 16 kwadratów powielonej tekstury na œcianie dolnej
+ //koordynaty ustawienia 16 x 16 kwadratów powielonej tekstury na ?cianie dolnej
 gl.glTexCoord2f(0.0f, 0.0f);gl.glVertex3f(100.0f,-100.0f,100.0f);
 gl.glTexCoord2f(0.0f, 16.0f);gl.glVertex3f(100.0f,-100.0f,-100.0f);
 gl.glTexCoord2f(16.0f, 16.0f);gl.glVertex3f(-100.0f,-100.0f,-100.0f);
 gl.glTexCoord2f(16.0f, 0.0f);gl.glVertex3f(-100.0f,-100.0f,100.0f);
 gl.glEnd();
 
- //œciana gorna
-//za³adowanie tekstury wczytanej wczeœniej z pliku trawa.bmp
+ //?ciana gorna
+//za?adowanie tekstury wczytanej wcze?niej z pliku trawa.bmp
 gl.glBindTexture(GL.GL_TEXTURE_2D, t3.getTextureObject());
 gl.glBegin(GL.GL_QUADS);
 gl.glNormal3f(0.0f,-1.0f,0.0f);
@@ -71,5 +83,5 @@ gl.glTexCoord2f(1.0f, 0.0f);gl.glVertex3f(100.0f,100.0f,-100.0f);
 gl.glTexCoord2f(0.0f, 0.0f);gl.glVertex3f(100.0f,100.0f,100.0f);
 gl.glEnd();
  }
-    
+
 }
