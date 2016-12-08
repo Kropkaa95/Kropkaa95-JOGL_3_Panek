@@ -84,15 +84,34 @@ s=sc.nextFloat();*/
  {uuu=0;
  scena.Przesun(uuu+=0.7f);
  }
+ 
  if(e.getKeyCode() == KeyEvent.VK_DOWN)
  {uuu=0;
  scena.Przesun(uuu-=0.7f);
  }
- if(e.getKeyCode() == KeyEvent.VK_RIGHT)
  
+ if(e.getKeyCode() == KeyEvent.VK_RIGHT)
  scena.kat+=1.0f;
+ 
  if(e.getKeyCode() == KeyEvent.VK_LEFT)
  scena.kat-=1.0f;
+ 
+     if (e.getKeyChar() == 'j' && scena.x < 80) {
+         scena.x += 1.0f;
+     }
+     if (e.getKeyChar() == 'l' && scena.x > -80) {
+         scena.x -= 1.0f;
+     }
+     if (e.getKeyChar() == 'i' && scena.z < 70) {
+         scena.z += 1.0f;
+     }
+     if (e.getKeyChar() == 'k' && scena.z > -75) {
+         scena.z -= 1.0f;
+     }
+
+ 
+ 
+
  
 if(e.getKeyChar() == 'q')
     ambientLight = new float[]{ambientLight[0]+0.1f, ambientLight[0]+0.1f, ambientLight[0]+0.1f,1.0f};
@@ -664,9 +683,12 @@ walec(gl);
  gl.glPopMatrix();
  gl.glEnd();
 }*/
+//koparka\/
+scena.Rysuj(gl,t1,t3,t2);
+gl.glFlush();
 
-/* koparka\/
-        gl.glScalef(2,2,2);
+gl.glTranslatef(0, -45, 0);
+        gl.glScalef(8,8,8);
 koparka.Rysuj(gl);
  if(koparka.trzy<-70.0f&&i==0)
  {     
@@ -699,10 +721,9 @@ if(koparka.jeden<=-5.0f&&i==0&&koparka.dwa>-70.0f)
 }
  if(koparka.jeden>40&&i==1&&koparka.trzy<25.0f)
      koparka.trzy+=0.1f;
-        */
+        
 
-scena.Rysuj(gl,t1,t3,t2);
-gl.glFlush();
+
 }
 
 
