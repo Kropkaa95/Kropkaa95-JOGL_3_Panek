@@ -249,7 +249,10 @@ gl.glBindTexture(GL.GL_TEXTURE_2D, t1.getTextureObject());
         gl.glMatrixMode(GL.GL_PROJECTION);
         gl.glLoadIdentity();
         glu.gluPerspective(100.0f, h, 1.0, 200.0);
-       // gl.glViewport(200, 200, 100, 100);
+        gl.glTranslatef(0.0f, 80.0f, 0.0f);
+        
+
+//gl.glViewport(200, 200, 100, 100);
 
            /*     float ilor;
 if(width<=height)
@@ -687,7 +690,7 @@ walec(gl);
 scena.Rysuj(gl,t1,t3,t2);
 gl.glFlush();
 
-gl.glTranslatef(0, -45, 0);
+gl.glTranslatef(0, -85, 0);
         gl.glScalef(8,8,8);
 koparka.Rysuj(gl);
  if(koparka.trzy<-70.0f&&i==0)
